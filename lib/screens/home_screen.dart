@@ -6,7 +6,7 @@ import 'package:pro/widgets/product_item.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  List<Product> _product = [
+  final List<Product> _product = [
     Product(
         id: "j1",
         title: "MacBook Pro 14 M1",
@@ -46,7 +46,8 @@ class HomeScreen extends StatelessWidget {
         title: const Text("Mening Do'konim"),
       ),
       body: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          padding: const EdgeInsets.all(20),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 1,
             childAspectRatio: 3 / 2,
             crossAxisSpacing: 40,
