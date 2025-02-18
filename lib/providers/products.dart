@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pro/models/product.dart';
 
 class Products with ChangeNotifier {
+  // ignore: prefer_final_fields
   List<Product> _list = [
-     Product(
+    Product(
         id: "j1",
         title: "MacBook Pro 14 M1",
         description: "Yangi MacBook Pro kuchli M1 chipi bilan.",
@@ -38,10 +39,16 @@ class Products with ChangeNotifier {
     return [..._list];
   }
 
+  List<Product> get favorites {
+  return _list.where((produc) => produc.isFavorite).toList();
+}
+
+
+
   void addProduct() {
-   // _list.add(value);
-    // Uzgarish bulasa  
-    // notifyListeners(); malum qiladi 
+    // _list.add(value);
+    // Uzgarish bulasa
+    // notifyListeners(); malum qiladi
     notifyListeners();
   }
 }

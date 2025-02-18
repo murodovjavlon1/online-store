@@ -22,7 +22,7 @@ class ProduutDetailsScreen extends StatelessWidget {
         backgroundColor: Colors.greenAccent,
         title: Text(produc.title),
       ),
-      body: Center(
+      body: const Center(
         child: Text(""),
       ),
     );

@@ -1,48 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:pro/models/product.dart';
 import 'package:pro/widgets/produut_details_screen.dart';
+import 'package:provider/provider.dart';
 
 class ProductItem extends StatelessWidget {
-  final String image;
-  final String producId;
-  final String title;
   const ProductItem({
     super.key,
-    required this.image,
-    required this.title,
-    required this.producId,
   });
 
   @override
   Widget build(BuildContext context) {
+    final product = Provider.of<Product>(context, listen: false);
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
         // ignore: sort_child_properties_last
         child: GestureDetector(
           onTap: () {
-            Navigator.of(context)
-                .pushNamed(ProduutDetailsScreen.routeName, arguments: producId);
+            Navigator.of(context).pushNamed(ProduutDetailsScreen.routeName,
+                arguments: product.id);
           },
           child: Image.network(
-            image,
+            product.imagUrll,
             fit: BoxFit.cover,
           ),
         ),
         footer: GridTileBar(
           backgroundColor: const Color.fromARGB(221, 27, 27, 27),
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.favorite_outline,
-              color: Colors.greenAccent,
-            ),
+          leading: Consumer<Product>(
+            builder: (context, pro, child) {
+              return IconButton(
+                onPressed: () {
+                  pro.toggleFavorite();
+                },
+                icon: Icon(
+                  pro.isFavorite ? Icons.favorite : Icons.favorite_outline,
+                  color: Colors.greenAccent,
+                ),
+              );
+            },
           ),
           title: Text(
-            title,
+            product.title,
             textAlign: TextAlign.center,
           ),
           trailing: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              
+            },
             icon: const Icon(
               Icons.shopping_cart,
               color: Colors.greenAccent,

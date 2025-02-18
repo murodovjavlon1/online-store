@@ -13,10 +13,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<Products>(
-      create: (ctx) {
-        return Products();
-      },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<Products>(
+          create: (context) {
+            return Products();
+          },
+        ),
+       
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
@@ -24,9 +29,9 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: HomeScreen(),
+        home: const HomeScreen(),
         routes: {
-          ProduutDetailsScreen.routeName: (ctx) => ProduutDetailsScreen()
+          ProduutDetailsScreen.routeName: (ctx) => const ProduutDetailsScreen()
         },
       ),
     );
