@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pro/widgets/contom_cart.dart';
 import 'package:pro/widgets/product_grid.dart';
 
 enum FilterOption {
@@ -27,12 +28,12 @@ class _HomeScreenState extends State<HomeScreen> {
           PopupMenuButton(
             onSelected: (FilterOption filter) {
               setState(() {
-               // _showOnlyFavorites = filter == FilterOption.Favorites;
+                // _showOnlyFavorites = filter == FilterOption.Favorites;
                 if (filter == FilterOption.All) {
-                _showOnlyFavorites = false;
-              } else {
-                _showOnlyFavorites = true;
-              }
+                  _showOnlyFavorites = false;
+                } else {
+                  _showOnlyFavorites = true;
+                }
               });
             },
             itemBuilder: (context) {
@@ -47,6 +48,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ];
             },
+          ),
+          const ContomCart(
+            icon: (Icons.shopping_cart),
+            number: '0',
           )
         ],
       ),

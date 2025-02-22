@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pro/providers/cart.dart';
 import 'package:pro/providers/products.dart';
 import 'package:pro/screens/home_screen.dart';
 import 'package:pro/widgets/produut_details_screen.dart';
@@ -20,7 +21,9 @@ class MyApp extends StatelessWidget {
             return Products();
           },
         ),
-       
+        ChangeNotifierProvider<Cart>(create: (context) {
+          return Cart();
+        })
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
