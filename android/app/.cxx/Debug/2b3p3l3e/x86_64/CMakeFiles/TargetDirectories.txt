@@ -1,0 +1,2 @@
+/home/javlon/StudioProjects/online-store/android/app/.cxx/Debug/2b3p3l3e/x86_64/CMakeFiles/edit_cache.dir
+/home/javlon/StudioProjects/online-store/android/app/.cxx/Debug/2b3p3l3e/x86_64/CMakeFiles/rebuild_cache.dir

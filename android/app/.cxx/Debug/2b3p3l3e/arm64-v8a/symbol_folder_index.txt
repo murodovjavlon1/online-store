@@ -1,0 +1,1 @@
+/home/javlon/StudioProjects/online-store/build/app/intermediates/cxx/Debug/2b3p3l3e/obj/arm64-v8a

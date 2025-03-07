@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pro/models/product.dart';
 import 'package:pro/providers/cart.dart';
-import 'package:pro/widgets/produut_details_screen.dart';
+import 'package:pro/widgets/produt_details_screen.dart';
 import 'package:provider/provider.dart';
 
 class ProductItem extends StatelessWidget {
@@ -13,7 +13,6 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context, listen: false);
     final cart = Provider.of<Cart>(context, listen: false);
-   // print(cart.cartItems);
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
@@ -54,6 +53,13 @@ class ProductItem extends StatelessWidget {
                 product.title,
                 product.imagUrll,
                 product.price,
+              );
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text("Mahsulot savatga qo'shildi"),
+                  duration: Duration(seconds: 1), // 2 soniya ko‘rinib turadi
+                  behavior: SnackBarBehavior.floating, // Ko‘tarilgan snackbar
+                ),
               );
             },
             icon: const Icon(

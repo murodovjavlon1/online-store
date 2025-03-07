@@ -12,7 +12,7 @@ class ProduutDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final producId = ModalRoute.of(context)!.settings.arguments;
-    print(producId);
+    //print(producId);
     final produc = Provider.of<Products>(context, listen: false)
         .list
         .firstWhere((pro) => pro.id == producId);
@@ -23,7 +23,7 @@ class ProduutDetailsScreen extends StatelessWidget {
         title: Text(produc.title),
       ),
       body: const Center(
-        child: Text(""),
+        child: Text("1111"),
       ),
     );
   }

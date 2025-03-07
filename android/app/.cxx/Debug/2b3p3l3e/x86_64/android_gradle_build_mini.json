@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/home/javlon/snap/flutter/common/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/home/javlon/Android/Sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/home/javlon/StudioProjects/online-store/android/app/.cxx/Debug/2b3p3l3e/x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/home/javlon/Android/Sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/home/javlon/StudioProjects/online-store/android/app/.cxx/Debug/2b3p3l3e/x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}

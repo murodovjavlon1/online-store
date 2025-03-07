@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pro/providers/cart.dart';
 import 'package:pro/widgets/contom_cart.dart';
 import 'package:pro/widgets/product_grid.dart';
+import 'package:provider/provider.dart';
 
 enum FilterOption {
   Favorites,
@@ -19,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // final cart = Provider.of<Cart>(context);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -49,9 +52,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ];
             },
           ),
-          const ContomCart(
-            icon: (Icons.shopping_cart),
-            number: '0',
+          Consumer<Cart>(
+            builder: (context, value, child) {
+              return ContomCart(
+                icon: (Icons.shopping_cart),
+              );
+            },
           )
         ],
       ),

@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 // ignore: must_be_immutable
 class ProductGrid extends StatelessWidget {
   final bool showFavorites;
-  ProductGrid({
+  const ProductGrid({
     Key? key,
     required this.showFavorites,
   }) : super(key: key);

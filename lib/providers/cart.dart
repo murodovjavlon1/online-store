@@ -12,6 +12,18 @@ class Cart with ChangeNotifier {
     return _Items.length;
   }
 
+  int itemsCont() {
+    return _Items.length;
+  }
+
+  double get totalPrice {
+    var total = 0.0;
+    _Items.forEach((key, cartItem) {
+      total += cartItem.price * cartItem.quantity;
+    });
+    return total;
+  }
+
   void addToCart(
     String productId,
     String title,
@@ -42,6 +54,32 @@ class Cart with ChangeNotifier {
               ));
     }
 
+    notifyListeners();
+  }
+  void removeSingleItem(String productId) {
+    if (!_Items.containsKey(productId)) {
+      return;
+    }
+    if (_Items[productId]!.quantity > 1) {
+      _Items.update(
+        productId,
+        (existingCartItem) => CartItem(
+          id: existingCartItem.id,
+          title: existingCartItem.title,
+          imageUrl: existingCartItem.imageUrl,
+          price: existingCartItem.price,
+          quantity: existingCartItem.quantity - 1,
+        ),
+      );
+    } else {
+      _Items.remove(
+          productId); // Agar quantity 1 bo‘lsa, butunlay o‘chirib tashlaymiz.
+    }
+    notifyListeners();
+  }
+
+  void removeItem(String productId) {
+    _Items.remove(productId);
     notifyListeners();
   }
 }
