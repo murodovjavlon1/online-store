@@ -21,14 +21,14 @@ class CartScreen extends StatelessWidget {
         children: <Widget>[
           Card(
             child: Padding(
-              padding: EdgeInsets.only(top: 16, left: 16, right: 16),
+              padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 //  mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   Text(
                     "Umumiy : \$${cart.totalPrice}",
-                    style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
                   ),
                   TextButton(
                     onPressed: () {
@@ -36,13 +36,13 @@ class CartScreen extends StatelessWidget {
                           cart.cartItems.values.toList(), cart.totalPrice);
                       cart.clear();
                     },
-                    child: Text("Buyutma Qilish "),
+                    child: const Text("Buyutma Qilish "),
                   )
                 ],
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Expanded(

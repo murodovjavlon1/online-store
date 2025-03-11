@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Consumer<Cart>(
             builder: (context, value, child) {
-              return ContomCart(
+              return const ContomCart(
                 icon: (Icons.shopping_cart),
               );
             },

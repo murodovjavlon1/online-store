@@ -53,11 +53,12 @@ class ProduutDetailsScreen extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  // ignore: avoid_unnecessary_containers
                   Container(
                     //      padding: EdgeInsets.only(top: 13),
                     child: Text(
                       "Narxi: ${produc.price}",
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Colors.black54,
@@ -82,11 +83,11 @@ class ProduutDetailsScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                      label: Text(
+                      label: const Text(
                         "Savatga O'tish ",
                         style: TextStyle(color: Colors.black54),
                       ),
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.shopping_bag,
                         color: Colors.black54,
                       ),
@@ -108,7 +109,7 @@ class ProduutDetailsScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         "Savatga qo'shish",
                       ),
                     );

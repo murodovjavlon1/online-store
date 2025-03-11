@@ -77,6 +77,7 @@ class ProductItem extends StatelessWidget {
                 product.imagUrll,
                 product.price,
               );
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text("Mahsulot savatga qo'shildi"),

@@ -10,9 +10,9 @@ import 'package:provider/provider.dart';
 class ProductGrid extends StatelessWidget {
   final bool showFavorites;
   const ProductGrid({
-    Key? key,
+    super.key,
     required this.showFavorites,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

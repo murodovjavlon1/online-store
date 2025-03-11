@@ -30,14 +30,14 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           const Divider(),
-          // ListTile(
-          //   leading: const Icon(Icons.),
-          //   title: const Text("Maxsulot qushish "),
-          //   onTap: () {
-          //     // Navigator.of(context).pushReplacementNamed("/orders");
-          //   },
-          // ),
-          // const Divider()
+          ListTile(
+            leading: const Icon(Icons.edit),
+            title: const Text("Mahsulotlarni Boshqarish "),
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed("/menag_produc");
+            },
+          ),
+          const Divider()
         ],
       ),
     );
