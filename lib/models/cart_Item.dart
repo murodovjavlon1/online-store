@@ -13,5 +13,4 @@ class CartItem {
     required this.price,
   });
 
-  get keys => null;
 }

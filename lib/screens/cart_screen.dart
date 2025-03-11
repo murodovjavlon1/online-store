@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pro/providers/cart.dart';
+import 'package:pro/providers/orders.dart';
 import 'package:pro/widgets/cart_list_item.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +30,14 @@ class CartScreen extends StatelessWidget {
                     "Umumiy : \$${cart.totalPrice}",
                     style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
                   ),
-                  TextButton(onPressed: () {}, child: Text("Buyutma Qilish "))
+                  TextButton(
+                    onPressed: () {
+                      Provider.of<Orders>(context, listen: false).addToOrder(
+                          cart.cartItems.values.toList(), cart.totalPrice);
+                      cart.clear();
+                    },
+                    child: Text("Buyutma Qilish "),
+                  )
                 ],
               ),
             ),

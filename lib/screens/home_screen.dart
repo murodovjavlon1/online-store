@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pro/providers/cart.dart';
+import 'package:pro/widgets/app_drawer.dart';
 import 'package:pro/widgets/contom_cart.dart';
 import 'package:pro/widgets/product_grid.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +22,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final cart = Provider.of<Cart>(context);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -61,6 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
+      drawer: const AppDrawer(),
       body: ProductGrid(showFavorites: _showOnlyFavorites),
     );
   }

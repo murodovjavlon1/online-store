@@ -19,12 +19,35 @@ class ProductItem extends StatelessWidget {
         // ignore: sort_child_properties_last
         child: GestureDetector(
           onTap: () {
-            Navigator.of(context).pushNamed(ProduutDetailsScreen.routeName,
-                arguments: product.id);
+            Navigator.of(context).pushNamed(
+              ProduutDetailsScreen.routeName,
+              arguments: product.id,
+            );
           },
           child: Image.network(
             product.imagUrll,
             fit: BoxFit.cover,
+            loadingBuilder: (context, child, loadingProgress) {
+              if (loadingProgress == null) {
+                return child; // Rasm yuklanib bo‘lsa, uni ko‘rsatish
+              }
+              return const Center(
+                child: Icon(
+                  Icons.image, //  Rasm yuklanayotgan paytda ko‘rsatish
+                  size: 50,
+                  color: Colors.grey,
+                ),
+              );
+            },
+            errorBuilder: (context, error, stackTrace) {
+              return const Center(
+                child: Icon(
+                  Icons.broken_image, //  Rasm yuklanmasa, xatolik belgisi
+                  size: 50,
+                  color: Colors.red,
+                ),
+              );
+            },
           ),
         ),
         footer: GridTileBar(
@@ -57,8 +80,8 @@ class ProductItem extends StatelessWidget {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text("Mahsulot savatga qo'shildi"),
-                  duration: Duration(seconds: 1), // 2 soniya ko‘rinib turadi
-                  behavior: SnackBarBehavior.floating, // Ko‘tarilgan snackbar
+                  duration: Duration(seconds: 1),
+                  behavior: SnackBarBehavior.floating,
                 ),
               );
             },

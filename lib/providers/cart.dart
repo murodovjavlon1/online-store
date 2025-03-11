@@ -56,10 +56,12 @@ class Cart with ChangeNotifier {
 
     notifyListeners();
   }
+
   void removeSingleItem(String productId) {
-    if (!_Items.containsKey(productId)) {
+    if (!_Items.containsKey(productId) || _Items[productId] == null) {
       return;
     }
+
     if (_Items[productId]!.quantity > 1) {
       _Items.update(
         productId,
@@ -71,15 +73,17 @@ class Cart with ChangeNotifier {
           quantity: existingCartItem.quantity - 1,
         ),
       );
-    } else {
-      _Items.remove(
-          productId); // Agar quantity 1 bo‘lsa, butunlay o‘chirib tashlaymiz.
+      notifyListeners();
     }
-    notifyListeners();
   }
 
   void removeItem(String productId) {
     _Items.remove(productId);
+    notifyListeners();
+  }
+
+  void clear() {
+    _Items.clear();
     notifyListeners();
   }
 }

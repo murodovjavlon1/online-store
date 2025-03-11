@@ -18,7 +18,6 @@ class ProductGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     final productsDate = Provider.of<Products>(context);
     final producs =showFavorites ? productsDate.favorites:  productsDate.list;
-   // print(showOnlyFavorites);
     return GridView.builder(
         padding: const EdgeInsets.all(20),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -30,9 +29,6 @@ class ProductGrid extends StatelessWidget {
         itemCount: producs.length,
         itemBuilder: (context, index) {
           return ChangeNotifierProvider<Product>.value(
-            // create: (context) {
-            //   return producs[index];
-            // },
             value: producs[index],
             child: const ProductItem(),
           );
